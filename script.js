@@ -4,8 +4,8 @@ const input = document.querySelector("#search-input");
 const movieContainer = document.querySelector("#movie-container");
 
 // API configuration
-const API_BASE_URL = "http://www.omdbapi.com/";
-const API_KEY = "527a8e8";
+const API_BASE_URL = "https://www.omdbapi.com/"; // Use HTTPS
+const API_KEY = "527a8e8"; // Your API key
 
 // Function to fetch movie data
 async function fetchMovies(searchTerm) {
@@ -40,7 +40,7 @@ function displayMovies(movies) {
     movieCard.className = "movie-card";
 
     const posterUrl =
-      movie.Poster !== "N/A" ? movie.Poster : "default-poster.jpg";
+      movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450.png?text=No+Image"; // Placeholder image URL
 
     movieCard.innerHTML = `
             <img src="${posterUrl}" alt="Poster of ${movie.Title}">
