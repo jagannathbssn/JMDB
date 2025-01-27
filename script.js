@@ -4,17 +4,14 @@ const input = document.querySelector("#search-input");
 const movieContainer = document.querySelector("#movie-container");
 
 // API configuration
-const API_BASE_URL = "https://www.omdbapi.com/"; // Original API URL
+const API_BASE_URL = "https://www.omdbapi.com/"; // Use HTTPS
 const API_KEY = "527a8e8"; // Your API key
-
-// CORS Proxy URL
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
 // Function to fetch movie data
 async function fetchMovies(searchTerm) {
   try {
     const response = await fetch(
-      `${CORS_PROXY}${API_BASE_URL}?s=${encodeURIComponent(searchTerm)}&apikey=${API_KEY}`
+      `${API_BASE_URL}?s=${encodeURIComponent(searchTerm)}&apikey=${API_KEY}`
     );
     if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);
