@@ -39,8 +39,11 @@ function displayMovies(movies) {
     const movieCard = document.createElement("div");
     movieCard.className = "movie-card";
 
+    // Use a placeholder image URL that works everywhere
     const posterUrl =
-      movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450.png?text=No+Image"; // Placeholder image URL
+      movie.Poster !== "N/A"
+        ? movie.Poster
+        : "https://via.placeholder.com/300x450.png?text=No+Image";
 
     movieCard.innerHTML = `
             <img src="${posterUrl}" alt="Poster of ${movie.Title}">
