@@ -8,14 +8,14 @@ const API_BASE_URL = "https://www.omdbapi.com/"; // Original API URL
 const API_KEY = "527a8e8"; // Your API key
 
 // CORS Proxy URL
-const CORS_PROXY = "https://api.allorigins.win/get";
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
 // Function to fetch movie data
 async function fetchMovies(searchTerm) {
   try {
     const response = await fetch(
-  `${CORS_PROXY}?url=${encodeURIComponent(API_BASE_URL + "?s=" + searchTerm + "&apikey=" + API_KEY)}`
-);
+      `${CORS_PROXY}${API_BASE_URL}?s=${encodeURIComponent(searchTerm)}&apikey=${API_KEY}`
+    );
     if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);
     }
